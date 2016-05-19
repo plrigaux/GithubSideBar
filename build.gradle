@@ -1,0 +1,29 @@
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+version = '1.0'
+
+
+repositories { mavenCentral() }
+
+dependencies {
+	testCompile 'junit:junit:4.12'
+	compile 'org.codehaus.groovy:groovy-all:2.4.6'
+}
+
+repositories {
+	mavenCentral()
+}
+
+test {
+	systemProperties 'property': 'value'
+	//testLogging { // Show that tests are run in the command-line output
+	//	events 'started', 'passed'  }
+}
+
+uploadArchives {
+	repositories { flatDir { dirs 'repos' } }
+}
